@@ -1,0 +1,78 @@
+﻿<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">home_blazor</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="incomeslist">
+                <span class="oi oi-list" aria-hidden="true"></span> Incomes list
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="costslist">
+                <span class="oi oi-list" aria-hidden="true"></span> Costs list
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="incomesadd">
+                <span class="oi oi-plus" aria-hidden="true"></span> Add new income
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="costsadd">
+                <span class="oi oi-plus" aria-hidden="true"></span> Add new cost
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="incomesdelete">
+                <span class="oi oi-minus" aria-hidden="true"></span> Delete incomes
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="costsdelete">
+                <span class="oi oi-minus" aria-hidden="true"></span> Delete costs
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="incomessumbyday">
+                <span class="oi oi-dollar" aria-hidden="true"></span> Incomes sum by day
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="costssumbyday">
+                <span class="oi oi-dollar" aria-hidden="true"></span> Costs sum by day
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="incomessumbymonth">
+                <span class="oi oi-dollar" aria-hidden="true"></span> Incomes sum by month
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="costssumbymonth">
+                <span class="oi oi-dollar" aria-hidden="true"></span> Costs sum by month
+            </NavLink>
+        </li>
+    </ul>
+</div>
+
+@code
+{
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

@@ -1,0 +1,45 @@
+﻿@page "/costslist"
+@using home_blazor.Data.Model
+@using home_blazor.Data
+@using home_blazor.Data.Controllers
+@inject CostsService CostsService
+
+<h3>
+    List of costs
+</h3>
+
+@if (CostsService.GetCostList() == null)
+{
+    <p><em>No data</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Date</th>
+                <th>UserId</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cost in CostsService.GetCostList())
+            {
+                <tr>
+                    <td>@cost.CostId</td>
+                    <td>@cost.CostName</td>
+                    <td>@cost.CostValue</td>
+                    <td>@cost.CostDate</td>
+                    <td>@cost.UserId</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code
+{
+
+}

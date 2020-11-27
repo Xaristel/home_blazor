@@ -1,0 +1,25 @@
+﻿@page "/costssumbymonth"
+@using home_blazor.Data
+@using home_blazor.Data.Controllers
+@inject CostsService CostsService
+
+<h3>Statistic of costs for input month</h3>
+<br />
+<h4>
+    Enter date: <input @bind-value="@date" />
+    <button @onclick="GetSumByDate" style="width: 300px">Calculate sum</button>
+    <br />
+    <br />
+    Sum incomes by date: @result
+</h4>
+
+@code
+{
+    public string date;
+    public string result;
+
+    private void GetSumByDate()
+    {
+        this.result = CostsService.GetSumForMonth(date);
+    }
+}

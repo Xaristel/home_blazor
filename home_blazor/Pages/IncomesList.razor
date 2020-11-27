@@ -1,0 +1,45 @@
+﻿@page "/incomeslist"
+@using home_blazor.Data.Model
+@using home_blazor.Data
+@using home_blazor.Data.Controllers
+@inject IncomesService IncomesService
+
+<h3>
+    List of incomes
+</h3>
+
+@if (IncomesService.GetIncomeList() == null)
+{
+    <p><em>No data</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Date</th>
+                <th>UserId</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var income in IncomesService.GetIncomeList())
+            {
+                <tr>
+                    <td>@income.IncomeId</td>
+                    <td>@income.IncomeName</td>
+                    <td>@income.IncomeValue</td>
+                    <td>@income.IncomeDate</td>
+                    <td>@income.UserId</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code
+{
+
+}
